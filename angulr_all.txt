@@ -1,0 +1,133 @@
+
+<form method="post" action="http://localhost:3000/enrollment">
+
+=========================    connection ========================= 
+
+ const mongoosew = require("mongoose");
+
+var MongoClient = require('mongodb').MongoClient;
+// const router = express.Router(); 
+const mongoDB="mongodb://0.0.0.0:27017/studnt"
+
+mongoosew.set('strictQuery', false);
+mongoosew.connect(mongoDB,(err)=>{
+	if(err) console.log(`Unble to connect.. : ${err}`);
+	else
+		console.log('coonected With DB.....');
+})
+
+
+
+//var server = app.listen(3000,function(){});
+// app.listen(3000, ()=> {
+//   console.log("Server running :3000 ");
+// })
+
+=========================    insert   ========================= 
+
+app.post('/enrollment',function(req,res){
+     //console.log("Post Method enrollment");
+   // res.send("Welcome to Post Method");
+
+    var url ="mongodb://0.0.0.0:27017/";
+
+    MongoClient.connect(url,function(err,db){
+        if (err) throw err;
+
+        var dbo = db.db("mydb");
+
+        var myobj = {First_Name: req.body.first_name,
+                     Last_Name: req.body.last_name
+                   };
+        
+        dbo.collection("nikunj").insertOne(myobj,function(err,res){
+            if (err) throw err;
+            console.log("1 document inserted");
+            console.log(myobj);
+            db.close();
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
+=========================== Routing Aj  =====================================
+
+
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/home", {
+        templateUrl : "Home.html"
+    })
+    .when("/about", {
+        templateUrl : "About.html"
+    })
+    .when("/feedback", {
+        templateUrl : "Feedback.html"
+    })
+    .when("/contact",{
+    	templateUrl : "conatcus.html"
+    });
+     
+});
+</script>
+
+
+==================== express js Routing
+
+app.get('/',function(req,res){
+    console.log("Get Method");
+   // res.send("Welcome to java get");
+   res.reander('form');
+});
+
+==>2 )
+
+
+var express = require("express");
+var app = express();
+
+
+
+app.set('view engine','ejs');
+
+app.get('/', (req, res) => {
+  res.send('Hello Nikunj');
+});
+
+
+app.get('/home', (req, res) => {
+  res.render("/view");
+});
+
+
+
+app.listen(3000);
+
+=========================== HTTP services Aj  =====================================
+
+ <script>
+        var myapp=angular.module("myApp",[]);
+        myapp.controller("Employee",function($scope,$http)
+        {
+            $http(
+                {
+                    method:"GET",
+                    url:"format1.txt"
+                }).then(function onsuccess(response){
+                        $scope.Employee=response.data;
+                },function errorCallback(response){
+                    alert("Error occur");
+                }
+            );
+        });
+    </script>
