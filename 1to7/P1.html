@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myctrl" >
+<center>
+<label>Enter name</label><br>
+<input type="text" name="name" ng-model="name" placeholder="Enter name" autocomplete="off">
+ 
+<h1>{{W}}{{name}} </h1>
+ </center>
+<script>
+	var mainmodule = angular.module("myApp",[]);
+	mainmodule.controller("myctrl",function($scope) {
+		 $scope.W = "Welcome : ";
+	});
+</script>
+</body>
+</html>

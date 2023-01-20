@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> P5 </title>
+	<script src="angular.min.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myctrl">
+
+<center>
+	<label>Search items </label>
+
+	<br> 
+	<br>
+ <input type="text" ng-model="fit1"> 
+<table border="1">
+	<tr> 
+		<th>Items Name </th>
+		<th> Price </th>
+	</tr>
+	
+<tr ng-repeat="x in myname | filter:fit1" > 
+<td>  {{x.prd}}</td>
+
+<td>  {{x.price | currency :' Rs'}} </td>
+
+</tr>
+</table>
+
+ </center>
+
+ 
+<script>
+	
+	var modulemain = angular.module("myApp",[]);
+	modulemain.controller("myctrl",function($scope) {
+		 $scope.myname = [
+ 
+			
+			{prd : 'Burgar', price : '99'},
+			{prd : 'Sandwich', price : '70'},
+			{prd : 'Chili Burgar', price : '75'},
+			{prd : 'Frankie', price : '80'},
+			{prd : 'Cheese Burgar', price : '250'},
+			{prd : 'manchurian', price : '140'},
+			{prd : 'Paneer Handi', price : '550'},
+			{prd : 'Aloo tikki Burgar', price : '120'},
+		];
+	});
+
+</script>
+</body>
+</html>

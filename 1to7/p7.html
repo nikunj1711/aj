@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employee record </title>
+	<script src="angular.min.js"></script>
+	<style type="text/css">
+		td{
+			padding: 10px;
+
+		}
+	</style>
+</head>
+<body ng-app="myapp" ng-controller="myCtrl">
+
+<center>
+ 
+
+ 
+<table border="1">
+	<tr> 
+		<th>Employee Name </th> 
+		<th> salary</th>
+		<th>DA</th>
+		<th>Net Salary</th>
+	</tr>
+	
+	<br>
+<tr ng-repeat="x in myname | orderBy: '-da'"> 
+<td>  {{x.name | lowercase}}</td>
+
+<td>  {{x.sal | currency :'Rs'}} </td>
+
+  <td>  {{ x.da }} </td>
+    <td>  {{ x.nets }} </td>
+<!--   
+ <td>  {{ x.sal*x.da/100 }} </td>
+ 
+ <td>  {{ x.sal+(x.sal*x.da/100)  }} </td> -->
+</tr>
+</table>
+
+ 
+
+
+
+	<script>
+		
+		var module1 = angular.module("myapp",[]);
+
+
+
+		module1.controller("myCtrl", function($scope) {
+	//	$scope.name = "nIkUnj";
+	//	$scope.curr = 250000;
+	//	$scope.mydate = new Date("02/03/2022");
+	//	$scope.mydate2 = "02/03/2022";
+		$scope.myname = [
+	
+	{name : 'Bhargav', sal :  10000 , da: 10000*5/100,nets: 10000+(10000*5/100)},
+	{name : 'rajraj', sal :  2000 , da: 2000*5/100,nets: 2000+(2000*5/100)},
+	{name : 'Nikunj', sal :  5000 , da: 5000*5/100,nets: 5000+(5000*5/100)},
+		    // {name : 'raj', sal :  2000 , da: 2000*5/100 } ,
+		    // {name : 'raj', sal :  5000 , da: 5000*5/100 }  
+			// {name : 'Nikunj', sal :  15000 , da: 5 },
+			// {name : 'Khushi', sal :  20000   ,  da: 5 },
+			// {name : 'Raj', sal :  30000   ,  da: 5 },
+			// {name : 'Khushi', sal :  5000  ,  da: 5 } 		
+		];
+		});
+
+	</script>
+	</center>
+</body>
+</html>
+
+ 

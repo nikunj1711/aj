@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> pratical 2 </title>
+<script src="angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="m1">
+	<h2>Root Scope Value= {{course}} </h2>
+<br>
+<br>
+		    <div ng-controller="c1">
+		     	<h2>This is frist  controller C1 </h2>
+		       	<h2>{{name}}{{course}}</h2>
+		    </div>
+<br>
+<br>
+		    <div ng-controller="c2">
+		    	   <h2>This is Secound  controller C2</h2>
+		          	<h2>{{name}}{{course}}</h2>
+		    </div>
+</div>
+
+
+    <script>
+        var ngApp = angular.module("myApp", [])
+ 
+ 		ngApp.controller("m1", function($rootScope) {
+            $rootScope.course = "Msc(CA & IT)";       
+        }) 
+       
+        ngApp.controller("c1", function($scope) {
+            $scope.name = "My name is Nikunj i am study in ";   
+        }) 
+
+        ngApp.controller("c2", function($scope) {
+             $scope.name = "My name is Khushi i study in ";  
+        }) 
+
+    </script>
+</body>
+
+</html>
+
+
+ 

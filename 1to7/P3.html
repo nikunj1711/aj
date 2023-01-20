@@ -1,0 +1,61 @@
+<html>
+<head>
+	<title>angular js </title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="bs/css/bootstrap.min.css">
+	<script src="angular.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body ng-app="myapp" ng-controller="mycntr">
+<div class="container">    
+<br><br><br>
+    <h1>Simple Calculator </h1>
+    <br><br>
+    Number1 : <input type="number" ng-model="no1" required> 
+    <br><br>
+    Number2 : <input type="number" ng-model="no2" required> 
+    <br><br>
+    <button type="btn" class="btn btn-info" ng-click="addfun(no1,no2)"> 
+     Add
+    </button>
+    <button type="btn" class="btn btn-success" ng-click="subfun(no1,no2)"> 
+     Sub
+    </button>
+    <button type="btn" class="btn btn-info" ng-click="multifun(no1,no2)"> 
+    multi 
+    </button>
+    <button type="btn" class="btn btn-success" ng-click="divfun(no1,no2)"> 
+    Div 
+    </button>
+    <br> <br> <br> 
+    <h2 id="result"></h2>
+</div>
+ <script src="bs/js/bootstrap.min.js"></script>
+<script> 
+    var module1 = angular.module("myapp",[]);
+    module1.controller("mycntr", function($scope) {
+        $scope.addfun = function(no1,no2) 
+        {   
+            var add = no1+no2;
+            document.getElementById('result').innerHTML = "ans= "+add;
+        }
+            $scope.subfun = function(no1,no2) 
+            {
+                var sub = no1-no2;
+                //alert(sub);
+             document.getElementById('result').innerHTML = "ans= "+sub;
+            }
+                $scope.multifun = function(no1,no2) 
+                {
+                     var mult = no1*no2;
+                     document.getElementById('result').innerHTML = "ans= "+mult;
+                }
+                    $scope.divfun = function(no1,no2) 
+                    {
+                         var divs = no1/no2;
+                         document.getElementById('result').innerHTML = "ans= "+divs;
+                    }
+    });
+</script>
+</body>
+</html>

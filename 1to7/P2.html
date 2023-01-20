@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<script src="angular.min.js"></script>
+</head>
+<body>
+<h1>AngularJS rootScope  </h1>
+<div ng-app="myApp" ng-controller="m1" style="background-color: lightgray; height: 500px; width: 500px;">
+
+
+	<h1>this is main DIV</h1>
+	<h1>{{colornamem }} </h1>
+	 
+		    <div ng-controller="c1" style="background-color: gray; height: auto; width: 100px;">
+		     	<h2>This id frist  C1 </h2>
+		       	<h2>{{colorname}}</h2>
+		       	<h2>{{colornamem}}</h2>
+		    </div>	     
+<br>
+<br>
+		    <div ng-controller="c2" style="background-color: gray; height: auto; width: 100px;">
+		    	   <h2>This id frist  C2 </h2>
+		          	<h2>{{colorname}}</h2>
+		    </div>
+</div>
+
+
+    <script>
+        var ngApp = angular.module("myApp", [])
+ 		ngApp.controller("m1", function($rootScope,$scope) {
+            $rootScope.colornamem = "red";       
+        }) 
+        ngApp.controller("c1", function($rootScope,$scope) {
+            $scope.colorname = "orange";   
+        }) 
+
+        ngApp.controller("c2", function($rootScope,$scope) {
+            $scope.colorname = "green";   
+        }) 
+
+    </script>
+</body>
+
+
+
+</html>
+
+
+ 

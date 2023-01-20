@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employee record </title>
+	<script src="angular.min.js"></script>
+	<style type="text/css">
+		td{
+			padding: 10px;
+
+		}
+	</style>
+</head>
+<body ng-app="myapp" ng-controller="myCtrl">
+
+<center>
+<h3 style="color: green;" ></h3>
+
+<label>Search Employee </label>
+
+<input type="text" ng-model="flt1">
+<br>
+<table border="1">
+	<tr> 
+		<th>Employee Name </th> 
+		<th> salary</th>
+		<th>Joining Date</th>
+	</tr>
+	
+	<br>
+<tr ng-repeat="x in myname | filter:flt1"> 
+<td>  {{x.name | lowercase}}</td>
+
+<td>  {{x.sal | currency :'Rs'}} </td>
+
+<td>  {{x.jd | date : 'dd-MMM-y' }} </td>
+</tr>
+</table>
+
+<!--  <h1>{{mydate | date : 'dd-MMM-y'}}</h1> -->
+
+<!-- <h3>
+{{name | lowercase }}   // convert To lowercase<br><br>
+ {{curr | currency :'Rs ' }}   // currency <br><br>
+</h3>
+<h2>
+	Date Filter 
+</h2>
+ <h3> 
+	{{mydate | date : 'dd/MMM/y' }}    <br><br>
+	{{mydate | date : 'dd/MM/y' }}    <br><br> 
+</h3>  -->
+
+
+
+
+	<script>
+		
+		var module1 = angular.module("myapp",[]);
+
+		module1.controller("myCtrl", function($scope) {
+	//	$scope.name = "nIkUnj";
+	//	$scope.curr = 250000;
+	//	$scope.mydate = new Date("02/03/2022");
+	//	$scope.mydate2 = "02/03/2022";
+		$scope.myname = [
+			{name : 'Nikunj', sal : '150000', jd:new Date("12/30/2022")},
+			//{name : 'Tanvi', sal : '20' , jd:new Date("09/01/2022")},
+			{name : 'Khushi', sal : '200000' , jd:new Date("03/02/2022")},
+			{name : 'Rahul', sal : '300000' , jd:new Date("12/09/2022")},
+			//{name : 'Ravi', sal : '50' , jd:new Date("03/25/2022")},
+			{name : 'VASHU', sal : '1000' , jd:new Date("11/11/2022")}, 
+			//{name : 'Afrina', sal : '5000' , jd:new Date("10/02/2022")},
+			//{name : 'NIKHIL', sal : '60000' , jd:new Date("05/25/2022")}
+		 			
+		];
+		});
+
+	</script>
+	</center>
+</body>
+</html>
+
+ 
