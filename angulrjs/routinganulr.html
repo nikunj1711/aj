@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>angular js </title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="bs/css/bootstrap.min.css">
+	<script src="angular.min.js"></script>
+    <script src="angular_route.js"></script>
+	<script src="script.js"></script>
+</head>
+<body ng-app="myApp">
+<div class="container">
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a href="#!home" class="nav-link">Home</a> </li>
+            <li class="nav-item"> <a href="#!about"  class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#!feedback"  class="nav-link">Feedback</a> </li>
+            <li class="nav-item"><a href="#!contact"  class="nav-link">contact</a> </li>
+
+               
+        </ul>
+</nav>
+</div>
+
+<center><h1>THis is A Index Pgae </h1></center>
+
+<div ng-view></div>
+
+
+
+
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/home", {
+        templateUrl : "Home.html"
+    })
+    .when("/about", {
+        templateUrl : "About.html"
+    })
+    .when("/feedback", {
+        templateUrl : "Feedback.html"
+    })
+    .when("/contact",{
+    	templateUrl : "conatcus.html"
+    });
+     
+});
+</script>
+</body>
+</html>

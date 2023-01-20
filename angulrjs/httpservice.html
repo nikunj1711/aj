@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <title>$window service</title>
+<script src="angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="Employee">
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>Emp-id</th>
+            </tr>
+            <tr ng-repeat="x in Employee">
+                <td>{{x.Name}}</td>
+                <td>{{x.City}}</td>
+                <td>{{x.Emp-id}}</td>
+            </tr>
+        </table>
+
+    </div>
+    <script>
+        var myapp=angular.module("myApp",[]);
+        myapp.controller("Employee",function($scope,$http)
+        {
+            $http(
+                {
+                    method:"GET",
+                    url:"format1.txt"
+                }).then(function onsuccess(response){
+                        $scope.Employee=response.data;
+                },function errorCallback(response){
+                    alert("Error occur");
+                }
+            );
+        });
+    </script>
+</body>

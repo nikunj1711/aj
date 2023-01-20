@@ -1,0 +1,14 @@
+    [
+    { 
+        "Name":"Nikunj makwana",
+        "City":"ahemdabad",
+        "Emp-id": 123456 
+    },
+    {
+        "Name":"Khushi",
+        "City":"Rajkot",
+        "Emp-id": 789123 
+    } 
+
+     
+    ]

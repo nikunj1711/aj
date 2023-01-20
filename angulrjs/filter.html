@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fliter In Angular</title>
+	<script src="angular.min.js"></script>
+</head>
+<body ng-app="myapp" ng-controller="myCtrl">
+
+
+<h3 style="color: green;" ></h3>
+
+
+<table border="1">
+	<tr> 
+		<th>Name </th>
+		<th>City </th>
+	</tr>
+	<input type="text" ng-model="inT1" placeholder="Serch">
+<tr ng-repeat="x in myname | filter:inT1" > 
+<td>  {{x.name}}</td>
+
+<td>  {{x.city}} </td>
+
+</tr>
+</table>
+
+<h3>
+	{{name | lowercase }}   // convert To lowercase<br><br>
+	{{name | uppercase }}   //convert To uppercase<br><br>
+
+	{{curr | currency :'Rs' }}   // currency <br><br>
+</h3>
+
+<h2>
+	Date Filter 
+</h2>
+
+ <h3>
+	this is a Year 👇<br><br>
+	{{mydate | date : 'dd/MM/yyyy' }}    <br>
+	{{mydate | date : 'dd/MM/yy' }}    <br><br>
+	{{mydate | date : 'dd/MM/y' }}    <br><br>
+	this is a month 👇<br><br>
+	{{mydate | date : 'dd/MMMM/y' }}    <br><br>
+	{{mydate | date : 'dd/MMM/y' }}    <br><br>
+	{{mydate | date : 'dd/MM/y' }}    <br><br>
+
+	this is a date 👇<br><br>
+	{{mydate | date : 'dd/MMM/y' }}    <br><br>
+	{{mydate | date : 'd/MMM/y' }}    <br><br>
+</h3> 
+
+
+
+
+	<script>
+		
+		var module1 = angular.module("myapp",[]);
+
+		module1.controller("myCtrl", function($scope) {
+		$scope.name = "nIkUnj";
+		$scope.curr = 250000;
+		$scope.mydate = new Date("02/03/2022");
+		$scope.myname = [
+			{name : 'Nikunj', city : 'mehsana'},
+			{name : 'Tanvi', city : 'patan'},
+			{name : 'Khushi', city : 'surat'},
+			{name : 'Rahul', city : 'patan'},
+			{name : 'Ravi', city : 'HMT'},
+			{name : 'Vashu', city : 'mehsana'}
+		];
+		});
+
+	</script>
+
+</body>
+</html>
