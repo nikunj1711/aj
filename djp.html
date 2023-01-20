@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Employee Registration</title>
+	<script src="angular.min.js"></script>
+    <style>
+        input.ng-pristine{
+            background-color: yellow;
+        }
+        input.ng-touched.ng-invalid{
+            background-color: red;
+        }
+        input.ng-touched.ng-valid{
+            background-color: green;
+        }
+    </style>
+</head>
+<body ng-app="myapp" ng-controller="MyController"> 
+
+	<h1> Employee Registration</h1>
+    <form name="studentform" novalidate class="student-form">
+        <label for="firstname"> Firstname:</label><br>
+        <input type="text" name="firstname" ng-model="myForm.firstName" ng-required="true">
+        <span ng-show="studentform.firstname.$touched && studentform.firstname.$error.required">
+            firstname is required
+        </span><br><br>
+        
+
+        <label for="lastname">Lastname:</label><br>
+        <input type="text" name="lastname" ng-model="myForm.lastname" ng-minlength="3" ng-maxlength="10">
+        <span ng-show="studentform.lastname.$touched && studentform.lastname.$error.minlength">min 3 length</span>
+        <span ng-show="studentform.lastname.$touched && studentform.lastname.$error.maxlength">max 10 length</span><br><br>
+
+        Pin Code:
+            <input type="text" name="pincode" id="pincode" ng-model="myForm.txtpin" ng-pattern="/^[0-9]{1,5}$/"/>
+            
+    <span ng-show="myForm.txtpin$error.pincode"></span>
+
+        <label for="dob"> email:</label><br>
+        <input type="email" id="email" ng-model="myForm.email" name="email">
+        <span ng-show="studentform.email.$touched && studentform.email.$error.email">enter valid email</span><br><br>
+
+         <input type="submit" ng-disabled="studentform.firstname.$error.required || studentform.lastname.$error.minlength" name="submit" value="save">  
+
+ 
+
+
+
+
+
+    </form>
+
+        <H2>fristname : {{myForm.firstName}} </H2>
+        <H2>lastname : {{myForm.lastname}}  </H2>
+		<H2>mobile :  {{myForm.email}} </H2>
+        
+
+       
+       
+
+
+  
+
+</body>
+
+  <script>
+    angular.module("myapp", [])
+            .controller("MyController", function($scope) {
+                $scope.myForm = {};
+                $scope.myForm.firstName = "";
+              //  $scope.myForm.lastName  = "Jenkov";
+
+
+            });
+    </script>
+
+</html>
